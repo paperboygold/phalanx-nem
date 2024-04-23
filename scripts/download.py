@@ -17,7 +17,7 @@ from aiohttp import ClientError
 project_root = pathlib.Path(__file__).resolve().parent.parent
 
 # Load configuration from file
-with open(project_root / "configs/download-config.yaml", "r") as f:
+with open(project_root / "configs/download_config.yaml", "r") as f:
     config = yaml.safe_load(f)
 
 # Set the data directory from config or default to 'data/raw' relative to the explicitly defined project root

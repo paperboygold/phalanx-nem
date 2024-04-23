@@ -7,3 +7,12 @@ asyncio
 aiohttp_retry
 aiohttp
 aioresponses
+pandas
+pyyaml
+scikit-learn
+h5py
+notebook
+matplotlib
+seaborn
+missingno
+missingpy
