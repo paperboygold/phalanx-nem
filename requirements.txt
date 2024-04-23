@@ -11,8 +11,6 @@ pandas
 pyyaml
 scikit-learn
 h5py
-notebook
-matplotlib
-seaborn
-missingno
-missingpy
+dask[complete]
+dask-ml
+pyarrow
