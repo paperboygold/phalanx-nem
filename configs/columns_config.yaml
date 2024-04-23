@@ -1,3 +1,9 @@
+# Date columns to parse
+date_columns:
+  - RUN_DATETIME
+  - INTERVAL_DATETIME
+  - LASTCHANGED
+
 # Columns to keep in the dataset
 columns_to_keep:
   - RUN_DATETIME

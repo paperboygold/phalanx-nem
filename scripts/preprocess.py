@@ -40,11 +40,11 @@ config_path = project_root / "configs/columns_config.yaml"
 with open(config_path, "r") as f:
     config = yaml.safe_load(f)
 
-def load_data(directory):
+def load_data(directory, date_columns):
     logging.info("Loading data from directory: %s", directory)
     files = [os.path.join(directory, file) for file in os.listdir(directory) if file.endswith('.CSV')]
-    # Ensure the header is correctly recognized by specifying header=0
-    data = pd.concat((pd.read_csv(file, header=1, parse_dates=['RUN_DATETIME', 'INTERVAL_DATETIME', 'LASTCHANGED']) for file in files), ignore_index=True)
+    # Use date_columns from the configuration for parsing dates
+    data = pd.concat((pd.read_csv(file, header=1, low_memory=False, parse_dates=date_columns) for file in files), ignore_index=True)
     logging.info("Data loaded successfully with %d records", len(data))
     return data
 
@@ -113,12 +113,12 @@ def load_config(config_path):
         config = yaml.safe_load(file)
     return config
 
-
 def main():
     config = load_config(config_path)
     columns_to_keep = config['columns_to_keep']
+    date_columns = config['date_columns']  # Load date columns from config
     logging.info("Starting preprocessing pipeline")
-    data = load_data(raw_data_directory)
+    data = load_data(raw_data_directory, date_columns)  # Pass date_columns to load_data
     data = parse_dates(data)
     data = add_time_features(data)
     data = keep_columns(data, columns_to_keep)
