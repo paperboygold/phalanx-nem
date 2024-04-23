@@ -1,0 +1,17 @@
+# Required parameters
+base_url: "https://nemweb.com.au"
+data_directory: "./data"
+log_level: "INFO"
+max_attempts: 5 # Number of attempts to retry on failure
+backoff_factor: 2 # Backoff factor for exponential backoff
+max_workers: 5 # Number of workers to use for downloading files
+max_requests_per_second: 1 # Maximum number of requests per second
+target_file_patterns:
+  - ".*PUBLIC_DVD_P5MIN_REGIONSOLUTION_ALL_.*\\.zip$" # File pattern to match for download links
+
+# Optional parameters
+start_year: 2024
+start_month: 1
+end_year: 2024
+end_month: 1
+# output_path: "./data/raw"  # Uncomment to specify a custom output path
