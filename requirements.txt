@@ -1,3 +1,9 @@
 requests
 beautifulsoup4
 tqdm
+pyyaml
+aiolimiter
+asyncio
+aiohttp_retry
+aiohttp
+aioresponses
